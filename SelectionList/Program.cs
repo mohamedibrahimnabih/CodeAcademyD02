@@ -47,5 +47,15 @@ while(true)
                 Console.WriteLine($"The Mean = {sum / list.Count}");
             }
             break;
+        case 'R':
+            {
+                Console.WriteLine($"The First number is  = {list[0]} , {list.First()}");
+            }
+            break;
+        case 'Z':
+            {
+                Console.WriteLine($"The Last number is  = {list[list.Count-1]}");
+            }
+            break;
     }
 }
