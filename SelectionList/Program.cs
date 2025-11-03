@@ -68,5 +68,21 @@ while(true)
                     Console.WriteLine($"The Last number is  = {list[list.Count-1]} , {list[^1]}");
             }
             break;
+        case 'S':
+            {
+                if(!list.Any())
+                    Console.WriteLine("The list is empty");
+                else
+                {
+                    int smallest = list[0];
+
+                    foreach (var item in list)
+                        if (item < smallest)
+                            smallest = item;
+
+                    Console.WriteLine($"The min value {smallest}");
+                }
+            }
+            break;
     }
 }
