@@ -43,7 +43,7 @@ while(true)
                 foreach (var item in list)
                     sum += item;
 
-                Console.WriteLine($"The Avg = {sum / list.Count}");
+                Console.WriteLine($"The Mean = {sum / list.Count}");
             }
             break;
     }
