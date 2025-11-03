@@ -40,21 +40,32 @@ while(true)
             break;
         case 'M':
             {
-                int sum = 0;
-                foreach (var item in list)
-                    sum += item;
+                if (list.Count == 0)
+                    Console.WriteLine("the list is empty");
+                else
+                {
+                    int sum = 0;
+                    foreach (var item in list)
+                        sum += item;
 
-                Console.WriteLine($"The Mean = {sum / list.Count}");
+                    Console.WriteLine($"The Mean = {sum / list.Count}");
+                }
             }
             break;
         case 'R':
             {
-                Console.WriteLine($"The First number is  = {list[0]} , {list.First()}");
+                if (list.Count == 0)
+                    Console.WriteLine("the list is empty");
+                else
+                    Console.WriteLine($"The First number is  = {list[0]} , {list.First()}");
             }
             break;
         case 'Z':
             {
-                Console.WriteLine($"The Last number is  = {list[list.Count-1]}");
+                if (list.Count == 0)
+                    Console.WriteLine("the list is empty");
+                else
+                    Console.WriteLine($"The Last number is  = {list[list.Count-1]} , {list[^1]}");
             }
             break;
     }
