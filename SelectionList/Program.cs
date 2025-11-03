@@ -9,6 +9,7 @@ while(true)
     Console.WriteLine("S - Calc Smallest");
     Console.WriteLine("L - Calc Largest");
     Console.WriteLine("F - Find a num");
+    Console.WriteLine("I - Find a num using index");
     Console.WriteLine("R - First Number");
     Console.WriteLine("Z - Last Number");
     Console.WriteLine("Q - Quit");
@@ -121,6 +122,31 @@ while(true)
                     }
 
                     if(!founded)
+                        Console.WriteLine("No Result");
+                }
+            }
+            break;
+        case 'I':
+            {
+                if (!list.Any())
+                    Console.WriteLine("The list is empty");
+                else
+                {
+                    Console.WriteLine("Enter Your Index to search it:");
+                    int index = Convert.ToInt32(Console.ReadLine());
+
+                    bool founded = false;
+
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        if (index == i)
+                        {
+                            Console.WriteLine($"Number: {list[i]}");
+                            founded = true;
+                        }
+                    }
+
+                    if (!founded)
                         Console.WriteLine("No Result");
                 }
             }
