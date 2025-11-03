@@ -84,5 +84,46 @@ while(true)
                 }
             }
             break;
+        case 'L':
+            {
+                if (!list.Any())
+                    Console.WriteLine("The list is empty");
+                else
+                {
+                    int largest = list[0];
+
+                    foreach (var item in list)
+                        if (item > largest)
+                            largest = item;
+
+                    Console.WriteLine($"The max value {largest}");
+                }
+            }
+            break;
+        case 'F':
+            {
+                if (!list.Any())
+                    Console.WriteLine("The list is empty");
+                else
+                {
+                    Console.WriteLine("Enter Your Number to search it:");
+                    int number = Convert.ToInt32(Console.ReadLine());
+
+                    bool founded = false;
+
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        if (number == list[i])
+                        {
+                            Console.WriteLine($"the index is: {i}");
+                            founded = true;
+                        }
+                    }
+
+                    if(!founded)
+                        Console.WriteLine("No Result");
+                }
+            }
+            break;
     }
 }
