@@ -1,6 +1,240 @@
-﻿List<int> list = [];
+﻿using System;
 
-while(true)
+List<int> list = [];
+bool isExit = false;
+
+//while (!isExit)
+//{
+//    Console.WriteLine("\n====Welcome to our application====");
+//    Console.WriteLine("P - Print list");
+//    Console.WriteLine("A - Add new num");
+//    Console.WriteLine("M - Calc mean / avg");
+//    Console.WriteLine("S - Calc Smallest");
+//    Console.WriteLine("L - Calc Largest");
+//    Console.WriteLine("F - Find a num");
+//    Console.WriteLine("I - Find a num using index");
+//    Console.WriteLine("W - Swap");
+//    Console.WriteLine("N - Swap using index");
+//    Console.WriteLine("R - First Number");
+//    Console.WriteLine("Z - Last Number");
+//    Console.WriteLine("C - Clear list");
+//    Console.WriteLine("RR - Remove");
+//    Console.WriteLine("Q - Quit");
+
+//    Console.WriteLine("Enter Your Input: ");
+//    char selection = Convert.ToChar(Console.ReadLine().ToUpper());
+
+//    switch (selection)
+//    {
+//        case 'P':
+//            {
+//                if (list.Count == 0)
+//                    Console.WriteLine("the list is empty");
+//                else
+//                {
+//                    Console.Write("[ ");
+//                    foreach (var item in list)
+//                        Console.Write($"{item} "); //[ 10 20 30 ]
+//                    Console.WriteLine("]");
+//                }
+//            }
+//            break;
+//        case 'A':
+//            {
+//                Console.WriteLine("Enter Your Number");
+//                list.Add(Convert.ToInt32(Console.ReadLine()));
+//                Console.WriteLine($"{list[^1]} is added");
+//            }
+//            break;
+//        case 'M':
+//            {
+//                if (list.Count == 0)
+//                    Console.WriteLine("the list is empty");
+//                else
+//                {
+//                    int sum = 0;
+//                    foreach (var item in list)
+//                        sum += item;
+
+//                    Console.WriteLine($"The Mean = {sum / list.Count}");
+//                }
+//            }
+//            break;
+//        case 'R':
+//            {
+//                if (list.Count == 0)
+//                    Console.WriteLine("the list is empty");
+//                else
+//                    Console.WriteLine($"The First number is  = {list[0]} , {list.First()}");
+//            }
+//            break;
+//        case 'Z':
+//            {
+//                if (list.Count == 0)
+//                    Console.WriteLine("the list is empty");
+//                else
+//                    Console.WriteLine($"The Last number is  = {list[list.Count - 1]} , {list[^1]}");
+//            }
+//            break;
+//        case 'S':
+//            {
+//                if (!list.Any())
+//                    Console.WriteLine("The list is empty");
+//                else
+//                {
+//                    int smallest = list[0];
+
+//                    foreach (var item in list)
+//                        if (item < smallest)
+//                            smallest = item;
+
+//                    Console.WriteLine($"The min value {smallest}");
+//                }
+//            }
+//            break;
+//        case 'L':
+//            {
+//                if (!list.Any())
+//                    Console.WriteLine("The list is empty");
+//                else
+//                {
+//                    int largest = list[0];
+
+//                    foreach (var item in list)
+//                        if (item > largest)
+//                            largest = item;
+
+//                    Console.WriteLine($"The max value {largest}");
+//                }
+//            }
+//            break;
+//        case 'F':
+//            {
+//                if (!list.Any())
+//                    Console.WriteLine("The list is empty");
+//                else
+//                {
+//                    Console.WriteLine("Enter Your Number to search it:");
+//                    int number = Convert.ToInt32(Console.ReadLine());
+
+//                    bool founded = false;
+
+//                    for (int i = 0; i < list.Count; i++)
+//                    {
+//                        if (number == list[i])
+//                        {
+//                            Console.WriteLine($"the index is: {i}");
+//                            founded = true;
+//                        }
+//                    }
+
+//                    if (!founded)
+//                        Console.WriteLine("No Result");
+//                }
+//            }
+//            break;
+//        case 'I':
+//            {
+//                if (!list.Any())
+//                    Console.WriteLine("The list is empty");
+//                else
+//                {
+//                    Console.WriteLine("Enter Your Index to search it:");
+//                    int index = Convert.ToInt32(Console.ReadLine());
+
+//                    bool founded = false;
+
+//                    for (int i = 0; i < list.Count; i++)
+//                    {
+//                        if (index == i)
+//                        {
+//                            Console.WriteLine($"Number: {list[i]}");
+//                            founded = true;
+//                        }
+//                    }
+
+//                    if (!founded)
+//                        Console.WriteLine("No Result");
+//                }
+//            }
+//            break;
+//        case 'W':
+//            {
+//                if (!list.Any())
+//                    Console.WriteLine("The list is empty");
+//                else
+//                {
+//                    Console.WriteLine("Enter Num 1");
+//                    int num1 = Convert.ToInt32(Console.ReadLine());
+//                    Console.WriteLine("Enter Num 2");
+//                    int num2 = Convert.ToInt32(Console.ReadLine());
+
+//                    int index1 = -1;
+//                    int index2 = -1;
+//                    for (int i = 0; i < list.Count; i++)
+//                    {
+//                        if (num1 == list[i])
+//                        {
+//                            index1 = i;
+//                        }
+
+//                        if (num2 == list[i])
+//                        {
+//                            index2 = i;
+//                        }
+//                    }
+
+//                    if (index1 != -1 && index2 != -1)
+//                    {
+//                        int temp = list[index1];
+//                        list[index1] = list[index2];
+//                        list[index2] = temp;
+//                    }
+//                    else
+//                        Console.WriteLine("The numbers is not founded");
+//                }
+//            }
+//            break;
+//        case 'N':
+//            {
+//                if (!list.Any())
+//                    Console.WriteLine("The list is empty");
+//                else
+//                {
+//                    Console.WriteLine("Enter Index 1");
+//                    int index1 = Convert.ToInt32(Console.ReadLine());
+//                    Console.WriteLine("Enter Index 2");
+//                    int index2 = Convert.ToInt32(Console.ReadLine());
+
+//                    if (index1 < 0 && index2 < 0 && index1 < list.Count && index2 < list.Count)
+//                    {
+//                        int temp = list[index1];
+//                        list[index1] = list[index2];
+//                        list[index2] = temp;
+//                    }
+//                    else
+//                        Console.WriteLine("The indexes is not founded");
+//                }
+//            }
+//            break;
+//        case 'C':
+//            {
+//                list.Clear();
+//                Console.WriteLine("clear list successfully");
+//            }
+//            break;
+//        case 'Q':
+//            {
+//                isExit = true;
+//            }
+//            break;
+//        default:
+//            Console.WriteLine("Invalid Choice");
+//            break;
+//    }
+//}
+
+do
 {
     Console.WriteLine("\n====Welcome to our application====");
     Console.WriteLine("P - Print list");
@@ -11,18 +245,21 @@ while(true)
     Console.WriteLine("F - Find a num");
     Console.WriteLine("I - Find a num using index");
     Console.WriteLine("W - Swap");
+    Console.WriteLine("N - Swap using index");
     Console.WriteLine("R - First Number");
     Console.WriteLine("Z - Last Number");
+    Console.WriteLine("G - Remove");
+    Console.WriteLine("C - Clear list");
     Console.WriteLine("Q - Quit");
 
     Console.WriteLine("Enter Your Input: ");
     char selection = Convert.ToChar(Console.ReadLine().ToUpper());
 
-    switch(selection)
+    switch (selection)
     {
         case 'P':
             {
-                if(list.Count == 0)
+                if (list.Count == 0)
                     Console.WriteLine("the list is empty");
                 else
                 {
@@ -67,12 +304,12 @@ while(true)
                 if (list.Count == 0)
                     Console.WriteLine("the list is empty");
                 else
-                    Console.WriteLine($"The Last number is  = {list[list.Count-1]} , {list[^1]}");
+                    Console.WriteLine($"The Last number is  = {list[list.Count - 1]} , {list[^1]}");
             }
             break;
         case 'S':
             {
-                if(!list.Any())
+                if (!list.Any())
                     Console.WriteLine("The list is empty");
                 else
                 {
@@ -122,7 +359,7 @@ while(true)
                         }
                     }
 
-                    if(!founded)
+                    if (!founded)
                         Console.WriteLine("No Result");
                 }
             }
@@ -178,7 +415,7 @@ while(true)
                         }
                     }
 
-                    if(index1 != -1 && index2 != -1)
+                    if (index1 != -1 && index2 != -1)
                     {
                         int temp = list[index1];
                         list[index1] = list[index2];
@@ -189,5 +426,55 @@ while(true)
                 }
             }
             break;
+        case 'N':
+            {
+                if (!list.Any())
+                    Console.WriteLine("The list is empty");
+                else
+                {
+                    Console.WriteLine("Enter Index 1");
+                    int index1 = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter Index 2");
+                    int index2 = Convert.ToInt32(Console.ReadLine());
+
+                    if (index1 < 0 && index2 < 0 && index1 < list.Count && index2 < list.Count)
+                    {
+                        int temp = list[index1];
+                        list[index1] = list[index2];
+                        list[index2] = temp;
+                    }
+                    else
+                        Console.WriteLine("The indexes is not founded");
+                }
+            }
+            break;
+        case 'C':
+            {
+                list.Clear();
+                Console.WriteLine("clear list successfully");
+            }
+            break;
+        case 'G':
+            {
+                if (!list.Any())
+                    Console.WriteLine("The list is empty");
+                else
+                {
+                    Console.WriteLine("Enter Number");
+                    int number = Convert.ToInt32(Console.ReadLine());
+
+                    list.Remove(number);
+                    Console.WriteLine($"Remove {number} successfully");
+                }
+            }
+                break;
+        case 'Q':
+            {
+                isExit = true;
+            }
+            break;
+        default:
+            Console.WriteLine("Invalid Choice");
+            break;
     }
-}
+} while (!isExit);
