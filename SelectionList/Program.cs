@@ -9,7 +9,8 @@ while(true)
     Console.WriteLine("S - Calc Smallest");
     Console.WriteLine("L - Calc Largest");
     Console.WriteLine("F - Find a num");
-    Console.WriteLine("C - Clear list");
+    Console.WriteLine("R - First Number");
+    Console.WriteLine("Z - Last Number");
     Console.WriteLine("Q - Quit");
 
     Console.WriteLine("Enter Your Input: ");
