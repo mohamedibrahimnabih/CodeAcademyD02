@@ -10,6 +10,7 @@ while(true)
     Console.WriteLine("L - Calc Largest");
     Console.WriteLine("F - Find a num");
     Console.WriteLine("I - Find a num using index");
+    Console.WriteLine("W - Swap");
     Console.WriteLine("R - First Number");
     Console.WriteLine("Z - Last Number");
     Console.WriteLine("Q - Quit");
@@ -148,6 +149,43 @@ while(true)
 
                     if (!founded)
                         Console.WriteLine("No Result");
+                }
+            }
+            break;
+        case 'W':
+            {
+                if (!list.Any())
+                    Console.WriteLine("The list is empty");
+                else
+                {
+                    Console.WriteLine("Enter Num 1");
+                    int num1 = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter Num 2");
+                    int num2 = Convert.ToInt32(Console.ReadLine());
+
+                    int index1 = -1;
+                    int index2 = -1;
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        if (num1 == list[i])
+                        {
+                            index1 = i;
+                        }
+
+                        if (num2 == list[i])
+                        {
+                            index2 = i;
+                        }
+                    }
+
+                    if(index1 != -1 && index2 != -1)
+                    {
+                        int temp = list[index1];
+                        list[index1] = list[index2];
+                        list[index2] = temp;
+                    }
+                    else
+                        Console.WriteLine("The numbers is not founded");
                 }
             }
             break;
